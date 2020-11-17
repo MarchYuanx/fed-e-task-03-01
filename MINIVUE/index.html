@@ -13,7 +13,7 @@
         <h1>v-text</h1>
         <div v-text="msg"></div>
         <h1>v-model</h1>
-        <input type="text" v-model="msg">
+        <input type="text" v-model="msg" v-on:input="">
         <input type="text" v-model="count">
         <h1 v-on:click="clickHtml">v-html</h1>
         <div v-html="h1"></div>
@@ -35,7 +35,12 @@
                 p: '<p>这是p标签</p>',
             },
             methods: {
-                clickHtml: () => {alert('click html')}
+                clickHtml: function(){
+                    alert(`click ${this.msg}`)
+                },
+                newInput: function(){
+                    console.log(`input ${this.msg}`)
+                }
             }
         })
 

@@ -35,13 +35,11 @@ class Compiler {
                 attrName = attrName.substr(2)
                 let key = attr.value
 
-                if(attrName.indexOf(':')>-1){
-                    attrName = attrName.replace(':','')
-                    node[attrName] = this.vm.$options.methods[key]
-                }else{
-                    this.update(node, key, attrName)
-                }
+                this.update(node, key, attrName)
 
+                if(this.isEventDirective(attrName)){
+                    this.eventHandler(node, key, attrName)
+                }
             } 
         })
     }
@@ -49,6 +47,12 @@ class Compiler {
     update(node, key, attrName){
         let updateFn = this[attrName+'Updater']
         updateFn && updateFn.call(this, node, this.vm[key], key)
+    }
+
+    eventHandler(node, fnName, attrName){
+        let eventType = attrName.substr(attrName.indexOf(':') + 1)
+        let fn = this.vm.$options.methods && this.vm.$options.methods[fnName]
+        fn && node.addEventListener(eventType, fn.bind(this.vm))
     }
 
     // 处理v-text指令
@@ -99,6 +103,10 @@ class Compiler {
     // 判断元素属性是否是指令
     isDirective(attrName){
         return attrName.startsWith('v-')
+    }
+    // 判断是否是处理事件的指令
+    isEventDirective(attrName){
+        return attrName.startsWith('on')
     }
     // 判断节点是否是文本节点
     isTextNode(node){

@@ -22,7 +22,6 @@ class Vue {
                     return data[key]
                 },
                 set(newValue){
-                    console.log('_proxyData',newValue)
                     if(newValue === data[key]){
                         return
                     }

@@ -27,7 +27,6 @@ class Observer {
                 return val
             },
             set (newValue){
-                console.log('defineReactive',newValue)
                 if(newValue === val){
                     return
                 }
