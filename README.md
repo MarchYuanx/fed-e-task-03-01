@@ -41,11 +41,11 @@ let vm = new Vue({
  
 
 ### 2、在模拟 Vue.js 响应式源码的基础上实现 v-html 指令，以及 v-on 指令。
-- ![minivue](https://github.com/MarchYuanx/fed-e-task-03-01/blob/master/MINIVUE/vue.jpg)
+> ![minivue](https://github.com/MarchYuanx/fed-e-task-03-01/blob/master/MINIVUE/vue.jpg)
 - [compiler.js](https://github.com/MarchYuanx/fed-e-task-03-01/blob/master/MINIVUE/js/compiler.js)
 - [index.html](https://github.com/MarchYuanx/fed-e-task-03-01/blob/master/MINIVUE/index.html)
 
 ### 3、参考 Snabbdom 提供的电影列表的示例，利用Snabbdom 实现类似的效果，如图：
-- ![snabbdom](https://github.com/MarchYuanx/fed-e-task-03-01/blob/master/snabbdom/snabbdom.jpg)
+> ![snabbdom](https://github.com/MarchYuanx/fed-e-task-03-01/blob/master/snabbdom/snabbdom.jpg)
 - [app.js](https://github.com/MarchYuanx/fed-e-task-03-01/blob/master/snabbdom/src/app.js)
 - [index.html](https://github.com/MarchYuanx/fed-e-task-03-01/blob/master/snabbdom/index.html)
